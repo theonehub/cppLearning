@@ -12,12 +12,17 @@ int findStr(string& mStr, string& nStr)
     
     int idx = 0;
     int jdx = 0;
+    int kdx = 0;
     bool isMatchInProgress = false;
 
     while (jdx < mStr.length())
     {
         if (mStr[jdx] == nStr[idx])
         {
+            if (false == isMatchInProgress)
+            {
+                kdx = jdx;
+            }
             idx++;
             isMatchInProgress = true;
             if (idx == nStr.length())
@@ -30,7 +35,7 @@ int findStr(string& mStr, string& nStr)
         {
             isMatchInProgress = false;
             idx = 0;
-            continue;
+            jdx = kdx;
         }
         jdx++;
     }
@@ -39,7 +44,8 @@ int findStr(string& mStr, string& nStr)
 
 int main()
 {
-    string mStr = "Main String to find for SSSubString";
-    string nStr = "Sub";
+    string mStr = "mississippi";
+    //string mStr = "Main String to find for any String";
+    string nStr = "issip";
     cout << findStr(mStr, nStr) << endl; 
 }
