@@ -39,12 +39,24 @@ int rearrange(int arr[], int arrlen)
     }
 }
 
+void rearrangeOpti(int arr[], int n)
+{
+    int j = 0;
+    for (int i = 0; i < n; i++) {
+        if (arr[i] < 0) {
+            if (i != j)
+                swap(arr[i], arr[j]);
+            j++;
+        }
+    }
+}
+
 int main(void)
 {
     int arr[] = {-10, 12, -45, 3, -7, 11, 12, -30};
     int arrlen = sizeof(arr)/sizeof(arr[0]);
 
-    rearrange(arr, arrlen);
+    rearrangeOpti(arr, arrlen);
     for (int idx = 0; idx < arrlen; idx++)
     {
         cout << arr[idx] << ", ";
