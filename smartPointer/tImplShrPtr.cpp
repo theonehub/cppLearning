@@ -1,0 +1,40 @@
+#include <iostream>
+#include "tImplShrPtr.h"
+
+using namespace std;
+
+template <class T>
+shrPtr<T>::shrPtr(T *ptrArg)
+{
+    this->ptr = ptrArg;
+    refCount++;
+}
+
+template <class T>
+shrPtr<T>::~shrPtr()
+{
+    if (refCount == 0)
+    {
+        delete this->ptr;
+    }
+    refCount--;
+}
+
+template <class T>
+shrPtr<T>::shrPtr(shrPtr<T> &shrPtrArg)
+{
+    this->ptr = shrPtrArg.ptr;
+    this->refCount = ++shrPtrArg.refCount;
+}
+
+template <class T>
+T* shrPtr<T>::operator->()
+{
+    return this->ptr;
+}
+
+template <class T>
+T& shrPtr<T>::operator*()
+{
+    return *(this->ptr);
+}
