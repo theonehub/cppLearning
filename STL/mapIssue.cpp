@@ -34,6 +34,10 @@ int main(void)
 
     classMap.insert({1, 10});
 
+    cout << "emplace" <<endl;
+
+    classMap.emplace(2, 20);
+
     cout << "mainOut" <<endl;
 }
 
