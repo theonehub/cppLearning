@@ -46,7 +46,10 @@ Output
 implicitCtor()
 CopyCtor()
 defaultDtor() : 10
+emplace
+implicitCtor()
 mainOut
+defaultDtor() : 20
 defaultDtor() : 11
 
 */
