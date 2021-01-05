@@ -17,7 +17,7 @@ class Element {
         Element(const Element& c)
         {
             cout << "CopyCtor()" << endl;
-            this->id = c.id;
+            this->id = c.id +1;
         }
 
         ~Element() {
@@ -33,14 +33,16 @@ int main(void)
     map<int, Element> classMap;
 
     classMap.insert({1, 10});
+
+    cout << "mainOut" <<endl;
 }
 
 /* 
 Output 
-
 implicitCtor()
 CopyCtor()
 defaultDtor() : 10
-defaultDtor() : 10
+mainOut
+defaultDtor() : 11
 
 */
