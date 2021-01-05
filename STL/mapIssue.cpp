@@ -8,10 +8,18 @@ class Element {
         Element() {
             cout << "defaultCtor()" <<endl;
         }
+
         Element(int idx) {
             cout << "implicitCtor()" << endl;
             id = idx;
         }
+
+        Element(const Element& c)
+        {
+            cout << "CopyCtor()" << endl;
+            this->id = c.id;
+        }
+
         ~Element() {
             cout << "defaultDtor() : " << id << endl;
         }
@@ -31,6 +39,7 @@ int main(void)
 Output 
 
 implicitCtor()
+CopyCtor()
 defaultDtor() : 10
 defaultDtor() : 10
 
