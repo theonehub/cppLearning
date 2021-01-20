@@ -8,13 +8,46 @@ class shrPtr {
         T* ptr;
         int refCount;
     public:
-        shrPtr(T *ptrArg);
+        shrPtr(T *ptrArg)
+        {
+            this->ptr = ptrArg;
+            refCount++;
+        }
 
-        ~shrPtr();
+        shrPtr()
+        {
+            this->ptr = NULL;
+            refCount = 0;
+        }
 
-        shrPtr(shrPtr<T> &shrPtrArg);
+        ~shrPtr()
+        {
+            refCount--;
+            if (refCount == 0)
+            {
+                delete this->ptr;
+            }
+        }
 
-        T* operator->();
-        T& operator*();
+        shrPtr(shrPtr<T> &shrPtrArg)
+        {
+            this->ptr = shrPtrArg.ptr;
+            this->refCount = ++shrPtrArg.refCount;
+        }
+
+        shrPtr<T>& operator=(shrPtr<T> &shrPtrArg)
+        {
+            this->ptr = shrPtrArg.ptr;
+            this->refCount = ++shrPtrArg.refCount;
+        }
+
+        T* operator->()
+        {
+            return this->ptr;
+        }
+        T& operator*()
+        {
+            return *(this->ptr);
+        }
 
 };

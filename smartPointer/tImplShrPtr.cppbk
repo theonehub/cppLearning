@@ -13,11 +13,11 @@ shrPtr<T>::shrPtr(T *ptrArg)
 template <class T>
 shrPtr<T>::~shrPtr()
 {
+    refCount--;
     if (refCount == 0)
     {
         delete this->ptr;
     }
-    refCount--;
 }
 
 template <class T>

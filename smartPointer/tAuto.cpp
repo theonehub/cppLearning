@@ -30,28 +30,28 @@ int AutoC::demoAutoPtr()
 
     BaseClass *pCopy = NULL;
     {
-        std::auto_ptr<BaseClass> aBc(new BaseClass());
-        std::cout << "BaseClass Address [aBC] : " << aBc.get() << ", Should be Valid\n";
-        aBc->Debug();
+        // std::auto_ptr<BaseClass> aBc(new BaseClass());
+        // std::cout << "BaseClass Address [aBC] : " << aBc.get() << ", Should be Valid\n";
+        // aBc->Debug();
 
-        std::auto_ptr<BaseClass> aBc2 = aBc;
-        std::cout << "BaseClass Address [aBc2] : " << aBc2.get() << ", Should be same as above\n";
-        std::cout << "BaseClass Address [aBc] : " << aBc.get() << ", Should be NULL\n";
+        // std::auto_ptr<BaseClass> aBc2 = aBc;
+        // std::cout << "BaseClass Address [aBc2] : " << aBc2.get() << ", Should be same as above\n";
+        // std::cout << "BaseClass Address [aBc] : " << aBc.get() << ", Should be NULL\n";
 
-        aBc2->Debug();
+        // aBc2->Debug();
 
-        //aBc->Debug();  //will lead to segFault
+        // //aBc->Debug();  //will lead to segFault
 
-        pCopy = aBc2.get();
-        std::cout << "BaseClass Address [pCopy] : " << pCopy << ", Should be same as aBc2\n";
-        std::cout << "BaseClass Address [aBc2] : " << aBc2.get() << ", Should be same as above\n";
-        pCopy->Debug();
+        // pCopy = aBc2.get();
+        // std::cout << "BaseClass Address [pCopy] : " << pCopy << ", Should be same as aBc2\n";
+        // std::cout << "BaseClass Address [aBc2] : " << aBc2.get() << ", Should be same as above\n";
+        // pCopy->Debug();
 
-        aBc2.release(); //invokes destructor, reset pointer to NULL.
-        std::cout << "BaseClass Address [aBc2] : " << aBc2.get() << ", Should be NULL after reset\n";
+        // aBc2.release(); //invokes destructor, reset pointer to NULL.
+        // std::cout << "BaseClass Address [aBc2] : " << aBc2.get() << ", Should be NULL after reset\n";
 
-        aBc2.reset(); //don't invokes destructor, reset pointer to NULL.
-        std::cout << "BaseClass Address [aBc2] : " << aBc2.get() << ", Should be NULL after reset\n";
+        // aBc2.reset(); //don't invokes destructor, reset pointer to NULL.
+        // std::cout << "BaseClass Address [aBc2] : " << aBc2.get() << ", Should be NULL after reset\n";
     } //auto_ptr invokes Destructor()
 
     //pCopy->Debug();  //will lead to segFault incase of release 

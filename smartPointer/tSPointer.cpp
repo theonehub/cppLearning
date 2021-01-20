@@ -4,6 +4,8 @@
 #include "inc/tBaseClass.h"
 #include "tAuto.h"
 #include "tUnique.h"
+#include "tImplShrPtr.h"
+#include "tSharedPtr.h"
 /**
  * Tips_______________________________________________________________________
  * Tips| Smart Pointers: Takes care of deleting pointers once they are no     | 
@@ -44,19 +46,26 @@
 
 int main(void)
 {
-   std::cout << "Invoking demoAuto" << std::endl;
-   AutoC sAuto;
-   sAuto.demoAutoPtr();
-   std::cout << "Done with demoAuto" << std::endl;
+   // std::cout << "Invoking demoAuto" << std::endl;
+   // AutoC sAuto;
+   // sAuto.demoAutoPtr();
+   // std::cout << "Done with demoAuto" << std::endl;
 
-   std::cout << "Invoking demoUnique" << std::endl;
-   UniqueC sUnique;
-   sUnique.demoUniquePtr();
-   std::cout << "Done with demoUnique" << std::endl;
+   // std::cout << "Invoking demoUnique" << std::endl;
+   // UniqueC sUnique;
+   // sUnique.demoUniquePtr();
+   // std::cout << "Done with demoUnique" << std::endl;
 
    //std::cout << "Invoking demoShare" << std::endl;
    //demoShared();
    //std::cout << "Done with demoShared" << std::endl;
+   // shrPtr<BaseClass> sPtr(new BaseClass());
+   // sPtr->SetBaseBaseVariable(10);
+   // shrPtr<BaseClass> sPtrCopy;
+   // sPtrCopy = sPtr;
+
+   SharedC sShared;
+   sShared.demoSharedPtr();
 }
 
 

@@ -9,15 +9,23 @@ class Element {
         int id;
         Element() {
             cout << "defaultCtor()" <<endl;
+            id = -1;
         }
-        Element(int idx) {
-            cout << "implicitCtor()" << endl;
+
+        explicit Element(int idx) {
+            cout << "implicitCtor() "<< idx << endl;
             id = idx;
         }
+
+        Element(const Element& c)
+        {
+            cout << "CopyCtor()" << endl;
+            this->id = c.id +1;
+        }
+
         ~Element() {
             cout << "defaultDtor() : " << id << endl;
         }
-
 };
 
 int main()
@@ -93,18 +101,31 @@ int main()
     }
 
 
-    map<int, int> emptyMap;
-
-    if (emptyMap.begin() == emptyMap.end())
-    {
-        cout << "Map is empty!!!" <<endl;
-    }
+   map<int, int> emptyMap;
 
     map<int, Element> classMap;
 
-    Element e = 10;
-    classMap.insert({1, 10});
+    classMap.insert({1, Element(10)});
 
+    cout << "emplace" <<endl;
+
+    classMap.emplace(2, 20);
+
+    classMap.emplace(2, 30);
+    classMap.erase(2);
+
+
+    classMap[3] = Element(30);
+
+    classMap[4] = Element(40);
+
+    cout << "Size : "<< classMap.size() <<endl;
+    cout << "classMap[4] " << classMap[4].id <<endl;
+    cout << "classMap[5] " << classMap[5].id <<endl;
+    cout << "Size : "<< classMap.size() <<endl;
+
+    classMap.emplace(5, 80);
+    cout << "mainOut" <<endl;
 
     return 0;
 }

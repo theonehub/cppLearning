@@ -14,6 +14,12 @@ BaseClass::BaseClass(int& bV)
     std::cout << "BaseClass Default Ctor()" << std::endl;
 }
 
+BaseClass::BaseClass(int bV)
+{
+    baseVariable = bV;
+    std::cout << "BaseClass Default Ctor()" << std::endl;
+}
+
 BaseClass::~BaseClass()
 {
     std::cout << "BaseClass Defaul Dtor()" << std::endl;
@@ -22,6 +28,11 @@ BaseClass::~BaseClass()
 void BaseClass::SetBaseBaseVariable(int& bV) {
     baseVariable = bV;
 }
+
+void BaseClass::SetBaseBaseVariable(int bV) {
+    baseVariable = bV;
+}
+
 
 int BaseClass::GetBaseVariable() {
     return baseVariable;
